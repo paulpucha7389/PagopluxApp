@@ -26,6 +26,6 @@ module.exports.login = (req, res) => {
             });
         
      } catch (error) {
-        
+        res.status(500).msg('An error occurred: ' + error);
      }
 };

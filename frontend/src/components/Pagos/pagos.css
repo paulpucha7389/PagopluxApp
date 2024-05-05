@@ -14,6 +14,17 @@
 .btn-pago{
     display: flex;
     position: absolute;
-    bottom: 20px;
+    bottom: 5px;
     margin: 0 auto;
+}
+
+.container-btn img{
+    display: flex;
+    width: 250px;
+    height: 230px;
+    margin-bottom: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }

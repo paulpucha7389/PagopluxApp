@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+    <!-- Importa las dependencias necesarias -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://sandbox-paybox.pagoplux.com/paybox/index.js"></script>
+    <script src="https://paybox.pagoplux.com/paybox/index.js"></script>
+
+    <script type="text/javascript">
+        var data = {
+            PayboxRemail: "da.nielrolesppx@gmail.com",
+            PayboxSendmail: "da.nielrolesppx@gmail.com",
+            PayboxRename: "Nombre Negocio",
+            PayboxSendname: "Nombre tarjetahabiente",
+            PayboxBase0: "2.0",
+            PayboxBase12: "10.0",
+            PayboxDescription: "Descripcion del pago",
+            PayboxLanguage: "es",
+            PayboxDirection: "Direccion tarjetahabiente",
+            PayBoxClientPhone: 'Telefono tarjetahabiente',
+            PayboxProduction: false,
+            PayboxRecurrent: true,
+            PayboxIdPlan: '171',
+            PayboxPermitirCalendarizar: true,
+            PayboxPagoInmediato: true,
+            PayboxCobroPrueba: false,
+            PayBoxClientIdentification: 'Cedula tarjetahabiente',
+            PayboxAmountVariablePlan : true,
+            PayboxFrequencyPlan:'MEN',
+            PayboxTieneIvaPlan: true,
+            PayboxDescriptionPlan:'Descripcion plan',
+            PayboxEnvironment: 'sandbox'
+        };
+    </script>
+    <script type="text/javascript">
+        var onAuthorize = function(response) {
+            // La variable response posee un Objeto con la respuesta de PagoPlux.
+            if (response.status == 'succeeded') {
+                // Pago exitoso response contiene la información del pago la cual puede
+                // usarse para validaciones que depende del tipo de pago realizado
+                var paymentInfo = {
+                    "amount": 7.00,
+                    "deferred": 0,
+                    "interest": "SI",
+                    "interestValue": "0.23",
+                    "amountWoTaxes": 7.00,
+                    "taxesValue": 7.00,
+                    "cardInfo": "XXXX XXXX XXXX 0000",
+                    "cardIssuer": "VISA",
+                    "cardType": "credit",
+                    "clientID": "1003088679",
+                    "clientName": "CRISTIAN BASTIDAS",
+                    "fecha": "2020-08-26 09:40:46",
+                    "id_transaccion": "6a574ae6-1",
+                    "state": "PAGADO",
+                    "token": "088021-200826-000019",
+                    "tipoPago": "TARJETA"
+                }
+            }
+        };
+        </script>
+    
+</head>
+<body>
+    <div id="ButtonPaybox"></div>
+
+    <script>
+        PagoPlux.desplegarBoton('ButtonPaybox', data);
+    </script>
+    
+</body>
+</html>
